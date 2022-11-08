@@ -13,6 +13,8 @@
     width: 200px;
   	height: 300px;
     z-index: 6;
+    top: 150px;
+    left: 100px;
     }
   
   audio{
@@ -20,13 +22,22 @@
     bottom: 0;
     z-index: 10
   }
-  
+
   
   h1{
-    z-index: 5;
+    z-index: 9;
     position: fixed;
     top: 0px;
-    
+    color: white;
+  }
+  
+    .header {
+    width: 600px;
+    height: 100px;
+    z-index: 8;
+    background: rgba(162, 162, 162, 0.63);
+    position: fixed;
+    top: 0px;
   }
   
   * {
@@ -41,22 +52,22 @@ html, body {
 
 .cube {
   -webkit-transform-style: preserve-3d;
-  -webkit-animation: spin 50s infinite ease-out;
+  -webkit-animation: spin 100s infinite ease-out;
   position: fixed;
   width: 100px;
   height: 100px;
-  top: 20%;
+  top: 0%;
   left: 50%;
   margin-left: -50px;
   margin-top: -50px;
 }
 
 .cube div {
-   width: 500px;
-   height: 500px;
+   width: 625px;
+   height: 6250px;
    line-height: 100px;
    text-align: center;
-   box-shadow: inset 0px 0px 0px 1px rgb(0, 0, 80);
+   box-shadow: inset 0px 0px 0px 1px rgb(50, 20, 80);
    background: rgba(10, 110, 218, 0.65);
    display: block;
    position: absolute;
@@ -64,30 +75,30 @@ html, body {
 
 .cube div.top {
    -webkit-transform: rotateX(90deg); 
-  margin-top: -250px;
+  margin-top: -312px;
 }
 
 .cube div.right {
    -webkit-transform: rotateY(90deg); 
-  margin-left: 250px;
+  margin-left: 312px;
 }
 
 .cube div.bottom {
    -webkit-transform: rotateX(-90deg); 
-  margin-top: 250px;
+  margin-top: 312px;
 }
 
 .cube div.left {
    -webkit-transform: rotateY(-90deg); 
-  margin-left: -250px;
+  margin-left: -312px;
 }
 
 .cube div.front {
-   -webkit-transform: translateZ(250px);
+   -webkit-transform: translateZ(312px);
 }
 
 .cube div.back {
-   -webkit-transform: translateZ(-250px) rotateX(180deg);
+   -webkit-transform: translateZ(-312px) rotateX(180deg);
 }
 
 @-webkit-keyframes spin {
@@ -99,7 +110,10 @@ html, body {
 </style>
 
 
-<h1 style="font-family:Luminari, fantasy"> Welcome to the Unus Mundus Network</h1>
+<h1 
+    style="font-family:Courier, monospace"> Welcome to the Unus Mundus Network</h1>
+<div class="header"></div>
+
 
 <div class="cube">
   <div class="top"></div>
