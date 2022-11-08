@@ -21,16 +21,6 @@
     z-index: 10
   }
   
-  .spinner div {
-    position: fixed;
-    top: -250px;
-    width: 1200px;
-    height: 1200px;
-    border: 1px solid #ccc;
-    background: rgba(100,170,255,0.8);
-    box-shadow: inset 0 0 20px rgba(0,0,0,0.2);
-    z-index: -5
-}
   
   h1{
     z-index: 5;
@@ -38,62 +28,71 @@
     top: 0px;
     
   }
-
-.spinner .face1 { 
-    -webkit-transform: translateZ(600px);
-    -ms-transform: translateZ(600px);
-    transform: translateZ(600px);
-}
-.spinner .face2 { 
-    -webkit-transform: rotateY(900deg) translateZ(600px); 
-    -ms-transform: rotateY(900deg) translateZ(600px); 
-    transform: rotateY(900deg) translateZ(600px); 
-}
-.spinner .face3 { 
-    -webkit-transform: rotateY(900deg) rotateX(900deg) translateZ(600px); 
-    -ms-transform: rotateY(900deg) rotateX(height:900deg) translateZ(600px); 
-    transform: rotateY(900deg) rotateX(900deg) translateZ(600px); 
-}
-.spinner .face4 { 
-    -webkit-transform: rotateY(1800deg) rotateZ(900deg) translateZ(600px); 
-    -ms-transform: rotateY(1800deg) rotateZ(900deg) translateZ(600px); 
-    transform: rotateY(1800deg) rotateZ(900deg) translateZ(60px); 
-}
-.spinner .face5 { 
-    -webkit-transform: rotateY(-90deg) rotateZ(90deg) translateZ(60px); 
-    -ms-transform: rotateY(-90deg) rotateZ(90deg) translateZ(60px); 
-    transform: rotateY(-90deg) rotateZ(90deg) translateZ(60px); 
-}
-.spinner .face6 { 
-    -webkit-transform: rotateX(-90deg) translateZ(60px); 
-    -ms-transform: rotateX(-90deg) translateZ(60px); 
-    transform: rotateX(-90deg) translateZ(60px); 
+  
+  * {
+   margin: 0px;
+   padding: 0px;
 }
 
-.spinner {
-    -webkit-animation: spincube 12s ease-in-out infinite;
-    animation: spincube 12s ease-in-out infinite;
-    -webkit-transform-style: preserve-3d;
-    -ms-transform-style: preserve-3d;
-    transform-style: preserve-3d;
-    -webkit-transform-origin: 60px 60px 0;
-    -ms-transform-origin: 60px 60px 0;
-    transform-origin: 60px 60px 0;
+html, body {
+   width: 100%;
+   height: 100%;
 }
 
-@-webkit-keyframes spincube {
-    16%      { -webkit-transform: rotateY(-90deg);                }
-    33%      { -webkit-transform: rotateY(-90deg) rotateZ(90deg); }
-    50%      { -webkit-transform: rotateY(180deg) rotateZ(90deg); }
-    66%      { -webkit-transform: rotateY(90deg) rotateX(90deg);  }
-    83%      { -webkit-transform: rotateX(90deg);                 }
+.cube {
+  -webkit-transform-style: preserve-3d;
+  -webkit-animation: spin 50s infinite ease-out;
+  position: fixed;
+  width: 100px;
+  height: 100px;
+  top: 20%;
+  left: 50%;
+  margin-left: -50px;
+  margin-top: -50px;
 }
-@keyframes spincube {
-    16%      { -ms-transform: rotateY(-90deg); transform: rotateY(-90deg); }
-    33%      { -ms-transform: rotateY(-90deg) rotateZ(90deg); transform: rotateY(-90deg) rotateZ(90deg); }
-    50%      { -ms-transform: rotateY(180deg) rotateZ(90deg); transform: rotateY(180deg) rotateZ(90deg); }
-    66%      { -ms-transform: rotateY(90deg) rotateX(90deg); transform: rotateY(90deg) rotateX(90deg); }
-    83%      { -ms-transform: rotateX(90deg); transform: rotateX(90deg); }
+
+.cube div {
+   width: 500px;
+   height: 500px;
+   line-height: 100px;
+   text-align: center;
+   box-shadow: inset 0px 0px 0px 1px rgb(0, 0, 80);
+   background: rgba(10, 110, 218, 0.65);
+   display: block;
+   position: absolute;
+}
+
+.cube div.top {
+   -webkit-transform: rotateX(90deg); 
+  margin-top: -250px;
+}
+
+.cube div.right {
+   -webkit-transform: rotateY(90deg); 
+  margin-left: 250px;
+}
+
+.cube div.bottom {
+   -webkit-transform: rotateX(-90deg); 
+  margin-top: 250px;
+}
+
+.cube div.left {
+   -webkit-transform: rotateY(-90deg); 
+  margin-left: -250px;
+}
+
+.cube div.front {
+   -webkit-transform: translateZ(250px);
+}
+
+.cube div.back {
+   -webkit-transform: translateZ(-250px) rotateX(180deg);
+}
+
+@-webkit-keyframes spin {
+  0% {-webkit-transform: rotateX(-20deg) rotateY(20deg);}
+  100% {-webkit-transform: rotateX(-20deg) rotateY(740deg);}
 }
 
   
@@ -102,15 +101,13 @@
 
 <h1 style="font-family:Luminari, fantasy"> Welcome to the Unus Mundus Network</h1>
 
-<div id="stage" style="width: 120px; height: 120px;">
-    <div class="spinner">
-        <div class="face1"></div>
-        <div class="face2"></div>
-        <div class="face3"></div>
-        <div class="face4"></div>
-        <div class="face5"></div>
-        <div class="face6"></div>
-    </div>
+<div class="cube">
+  <div class="top"></div>
+  <div class="right"></div>
+  <div class="bottom"></div>
+  <div class="left"></div>
+  <div class="front"></div>
+  <div class="back"></div>
 </div>
 
 <img src="Bunnie.jpg" class="bunnie" alt="Picture of Bunnie from Xenosaga">
